@@ -99,6 +99,8 @@ class RecipeCard extends HTMLElement {
 
     // Make sure to attach your root element and styles to the shadow DOM you
     // created in the constructor()
+    this.shadow.appendChild(styleElem);
+    this.shadow.appendChild(card);
 
     // Part 1 Expose - TODO
     let cardImage = document.createElement('img');
@@ -124,7 +126,7 @@ class RecipeCard extends HTMLElement {
     let ratingSpan1 = document.createElement('span');
     let ratingImage = document.createElement('img');
     let ratingSpan2 = document.createElement('span');
-    if (searchForKey(data, 'ratingValue') == true) {
+    if (searchForKey(data, 'ratingValue')) {
       ratingSpan1.innerHTML = searchForKey(data, 'ratingValue');
       ratingImage.setAttribute('src', `assets/images/icons/${Math.round(searchForKey(data, 'ratingValue'))}-star.svg`);
       ratingImage.setAttribute('alt', `${Math.round(searchForKey(data, 'ratingValue'))} stars`);
