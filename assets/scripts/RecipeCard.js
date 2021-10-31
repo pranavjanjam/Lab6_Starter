@@ -103,7 +103,7 @@ class RecipeCard extends HTMLElement {
     // Part 1 Expose - TODO
     let cardImage = document.createElement('img');
     cardImage.setAttribute('src', getImage(data));
-    cardImage.setAttribute('alt', searchForKey(data,'headline'));
+    cardImage.setAttribute('alt', searchForKey(data, 'headline'));
     card.appendChild(cardImage);
 
     let cardTitle = document.createElement('p');
@@ -137,6 +137,7 @@ class RecipeCard extends HTMLElement {
       ratingSpan1.innerHTML = 'No Reviews';
       cardRating.appendChild(ratingSpan1);
     }
+    card.appendChild(cardRating);
     
     let cardTime = document.createElement('time');
     cardTime.innerText = convertTime(searchForKey(data,'totalTime'));
