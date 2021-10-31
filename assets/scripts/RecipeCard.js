@@ -115,7 +115,7 @@ class RecipeCard extends HTMLElement {
 
     let cardOrganization = document.createElement('p');
     cardOrganization.setAttribute('class', 'organization');
-    organization.innerHTML = getOrganization(data);
+    cardOrganization.innerHTML = getOrganization(data);
     card.appendChild(cardOrganization);
 
     let cardRating = document.createElement('div');
@@ -190,6 +190,18 @@ function getUrl(data) {
       if (data['@graph'][i]['@type'] == 'Article') return data['@graph'][i]['@id'];
     }
   };
+  return null;
+}
+
+function getImage(data) {
+  if (data.image?.url) return data.image?.url;
+  if (data['@graph']) {
+    for (let i = 0; i < data['@graph'].length; i++) {
+      if (data['@graph'][i]['@type'] == 'ImageObject') {
+        return data['@graph'][i].url;
+      }
+    }
+  }
   return null;
 }
 
