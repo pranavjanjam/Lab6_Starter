@@ -111,6 +111,7 @@ class RecipeCard extends HTMLElement {
     let titleLink = document.createElement('a');
     titleLink.setAttribute('href', getUrl(data));
     titleLink.innerHTML = searchForKey(data, 'headline');
+    cardTitle.appendChild(titleLink);
     card.appendChild(cardTitle);
 
     let cardOrganization = document.createElement('p');
